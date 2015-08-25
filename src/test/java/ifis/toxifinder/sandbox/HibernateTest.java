@@ -5,7 +5,7 @@
  */
 package ifis.toxifinder.sandbox;
 
-import ifis.toxifinder.sandbox.MToxicDump;
+import ifis.toxifinder.datamodel.MToxicDump;
 import java.util.List;
 import junit.framework.TestCase;
 import org.hibernate.Session;
@@ -43,7 +43,8 @@ public class HibernateTest {
         // create a couple of events...
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(new MToxicDump("Area 51", "Tote Aliens überall..."));
+        MToxicDump dump1= new MToxicDump("Area 51", "Tote Aliens überall...");
+        session.save(dump1);
 
         session.getTransaction().commit();
         session.close();

@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ifis.toxifinder.sandbox;
+package ifis.toxifinder.datamodel;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
+
 /**
  * Introduce inheritance here
  *
@@ -19,10 +21,16 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "ToxicDump")
 public class MToxicDump {
-
+    
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
+
     
     /**
      * Default constructor needed by Hibernate.
@@ -36,9 +44,7 @@ public class MToxicDump {
         this.description = description;
     }
 
-    @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+   
     public Long getId() {
         return id;
     }
@@ -47,7 +53,7 @@ public class MToxicDump {
         this.id = id;
     }
 
-    @Column(name = "name")
+    
     public String getName() {
         return name;
     }
@@ -56,7 +62,7 @@ public class MToxicDump {
         this.name = name;
     }
 
-    @Column(name = "description")
+    
     public String getDescription() {
         return description;
     }
@@ -64,5 +70,9 @@ public class MToxicDump {
     public void setDescription(String description) {
         this.description = description;
     }
+
+   
+    
+    
 
 }

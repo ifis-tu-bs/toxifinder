@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ifis.toxifinder.core;
+package ifis.toxifinder.sandbox;
 
 
 import java.sql.Connection;
@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import org.h2gis.h2spatial.CreateSpatialExtension;
+import org.junit.Test;
 
 /**
  *
@@ -18,11 +19,12 @@ import org.h2gis.h2spatial.CreateSpatialExtension;
  */
 public class DatabaseTest {
     
-    // public static String h2url =" jdbc:h2:mem:syntax";
+     public static String h2url =" jdbc:h2:mem:test";
     //public static String h2url ="jdbc:h2:~/test";
-    public static String h2url ="jdbc:h2:tcp://localhost/~/test";
+    // public static String h2url ="jdbc:h2:tcp://localhost/~/test";
     
-    public static void main (String[] args) {
+    @Test
+    public void testBasicH2Spatial() {
         try {
             Class.forName("org.h2.Driver");
             // Open memory H2 table
